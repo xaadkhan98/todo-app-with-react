@@ -6,10 +6,10 @@ const TodoList = ({ todos, setTodos, filteredTodos }: any) => {
   return (
     <div className="todo-container ">
       <ul className="todo-list flex flex-col justify-center items-center">
-        {filteredTodos.map((todo: any) => (
+        {filteredTodos.map((todo: any, index: any) => (
           <Todo
+            key={todo.id}
             text={todo.text}
-            id={todo.id}
             setTodos={setTodos}
             todos={todos}
             todo={todo}
