@@ -20,9 +20,9 @@ export default function Home() {
 
   //Run once when the app starts
 
-  useEffect(() => {
-    // getLocalTodos();
-  }, []);
+  // useEffect(() => {
+  //   // getLocalTodos();
+  // }, []);
 
   //Functions
   const filterHandler = () => {
