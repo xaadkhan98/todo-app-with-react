@@ -13,10 +13,10 @@ export default function Home() {
   const [filteredTodos, setFilteredTodos] = useState<any>([]);
 
   //Use effect function
-  useEffect(() => {
-    filterHandler();
-    // saveLocalTodos();
-  }, [todos, status]);
+  // useEffect(() => {
+  //   filterHandler();
+  //   // saveLocalTodos();
+  // }, [todos, status]);
 
   //Run once when the app starts
 
