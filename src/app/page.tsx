@@ -15,13 +15,13 @@ export default function Home() {
   //Use effect function
   useEffect(() => {
     filterHandler();
-    saveLocalTodos();
+    // saveLocalTodos();
   }, [todos, status]);
 
   //Run once when the app starts
 
   useEffect(() => {
-    getLocalTodos();
+    // getLocalTodos();
   }, []);
 
   //Functions
@@ -39,25 +39,18 @@ export default function Home() {
     }
   };
 
-  const saveLocalTodos = () => {
-    localStorage.setItem("todos", JSON.stringify([todos]));
-  };
+  // const saveLocalTodos = () => {
+  //   localStorage.setItem("todos", JSON.stringify(todos));
+  // };
 
-  const getLocalTodos = () => {
-    const todosItem = localStorage.getItem("todos");
-
-    if (todosItem === null) {
-      localStorage.setItem("todos", JSON.stringify([]));
-    } else {
-      try {
-        const todoLocal = JSON.parse(todosItem); // We've ensured todosItem is not null by this point
-        setTodos(todoLocal);
-      } catch (error) {
-        console.error("Error parsing todos from local storage:", error);
-        // You may want to handle this error more gracefully, depending on your app's needs.
-      }
-    }
-  };
+  // const getLocalTodos = () => {
+  //   if (localStorage.getItem("todos") === null) {
+  //     localStorage.setItem("todos", JSON.stringify([]));
+  //   } else {
+  //     let todoLocal = JSON.parse(localStorage[`getItem("todos")`]);
+  //     setTodos(todoLocal);
+  //   }
+  // };
 
   return (
     <section className="min-w-max min-h-screen  bg-gradient-to-r from-purple-500 to-pink-500">

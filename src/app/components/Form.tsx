@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { FaPlusSquare } from "react-icons/fa";
-import { v4 as uuid } from "uuid";
 const Form = ({ inputText, setInputText, todos, setTodos, setStatus }: any) => {
   //Here I can write Javascript code and Function
 
@@ -18,7 +17,7 @@ const Form = ({ inputText, setInputText, todos, setTodos, setStatus }: any) => {
       {
         text: inputText,
         completed: false,
-        id: uuid(),
+        id: Math.random() * 1000,
       },
     ]);
     setInputText("");
