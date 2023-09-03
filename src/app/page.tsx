@@ -10,7 +10,7 @@ export default function Home() {
   const [inputText, setInputText] = useState("");
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
-  const [filteredTodos, setFilteredTodos] = useState([]);
+  const [filteredTodos, setFilteredTodos] = useState<any>([]);
 
   //Use effect function
   useEffect(() => {
@@ -44,11 +44,18 @@ export default function Home() {
   };
 
   const getLocalTodos = () => {
-    if (localStorage.getItem("todos") === null) {
+    const todosItem = localStorage.getItem("todos");
+
+    if (todosItem === null) {
       localStorage.setItem("todos", JSON.stringify([]));
     } else {
-      let todoLocal = JSON.parse(localStorage.getItem(["todos"]));
-      setTodos(todoLocal);
+      try {
+        const todoLocal = JSON.parse(todosItem); // We've ensured todosItem is not null by this point
+        setTodos(todoLocal);
+      } catch (error) {
+        console.error("Error parsing todos from local storage:", error);
+        // You may want to handle this error more gracefully, depending on your app's needs.
+      }
     }
   };
 
