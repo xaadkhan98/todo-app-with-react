@@ -7,7 +7,6 @@ const Form = ({ inputText, setInputText, todos, setTodos, setStatus }: any) => {
 
   const inputTextHandler = (e: any) => {
     setInputText(e.target.value);
-    ``;
   };
 
   const submitTodoHandler = (e: any) => {

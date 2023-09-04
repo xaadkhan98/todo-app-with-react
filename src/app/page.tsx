@@ -5,24 +5,19 @@ import React, { useState, useEffect } from "react";
 import Form from "./components/Form";
 import TodoList from "./components/TodoList";
 
-export default function Home() {
-  // State Stuff
+const Home = () => {
+  // States Stuff
   const [inputText, setInputText] = useState("");
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
-  const [filteredTodos, setFilteredTodos] = useState<any>([]);
+  const [filteredTodos, setFilteredTodos] = useState([]);
 
   //Use effect function
-  // useEffect(() => {
-  //   filterHandler();
-  //   // saveLocalTodos();
-  // }, [todos, status]);
+  useEffect(() => {
+    filterHandler();
+  }, [todos, status]);
 
   //Run once when the app starts
-
-  // useEffect(() => {
-  //   // getLocalTodos();
-  // }, []);
 
   //Functions
   const filterHandler = () => {
@@ -39,23 +34,10 @@ export default function Home() {
     }
   };
 
-  // const saveLocalTodos = () => {
-  //   localStorage.setItem("todos", JSON.stringify(todos));
-  // };
-
-  // const getLocalTodos = () => {
-  //   if (localStorage.getItem("todos") === null) {
-  //     localStorage.setItem("todos", JSON.stringify([]));
-  //   } else {
-  //     let todoLocal = JSON.parse(localStorage[`getItem("todos")`]);
-  //     setTodos(todoLocal);
-  //   }
-  // };
-
   return (
     <section className="min-w-max min-h-screen  bg-gradient-to-r from-purple-500 to-pink-500">
       <header className="flex items-center justify-center text-4xl py-10 font-bold ">
-        Saad Khan's Todo List
+        <h1>Saad Khan&apos; Todo List</h1>
       </header>
       <Form
         inputText={inputText}
@@ -72,4 +54,6 @@ export default function Home() {
       />
     </section>
   );
-}
+};
+
+export default Home;
